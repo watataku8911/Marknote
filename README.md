@@ -4,7 +4,7 @@
 
 ## アプリURL
 - [https://marknote-e7f85.firebaseapp.com](https://marknote-e7f85.firebaseapp.com)
-##開発言語
+## 開発言語
 - フロントエンド：Vue.js(Nuxt.js)
 - バックエンド：Firebase
 ## 制作期間
