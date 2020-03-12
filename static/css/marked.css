@@ -1,0 +1,41 @@
+  div#preview table {
+    border: solid 1px black;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  div#preview th {
+    padding: 8px;
+    border: solid 1px black;
+    background-color: #eee;
+  }
+  tr:nth-child(odd) td {
+      background-color: #fff;   /* 奇数行の背景色 */
+      padding: 8px;
+  }
+  tr:nth-child(even) td {
+      background-color: #eee;   /* 偶数行の背景色 */
+      padding: 8px;
+  }
+  div#preview td {
+    border: solid 1px black; 
+  }
+  div#preview h1,h2,h3,h4,h5 {
+    margin-top: 10px;
+    border-bottom:  solid 1px #eee;
+    margin-bottom: 30px;
+  }
+
+  div#preview p {
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+  }
+
+  div#preview pre, 
+  .body pre{
+    background-color: #364549;
+    color: #e3e3e3;
+    font-size: inherit;
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+    line-height: 1.8;
+    padding: 1em;;
+  }
