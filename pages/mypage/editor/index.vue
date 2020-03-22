@@ -154,91 +154,255 @@ html, body {
   transform: translateX(100vw) translateX(0px);
 }
 
-.md-heading-editor {
-    width: 100%;
-    font-size: 3vh;
+@media screen and (min-width:1026px){
+    .md-heading-editor {
+        width: 100%;
+        font-size: 3.5vh;
+    }
+
+    #markdown{
+        position: relative;
+        top:75px;
+        overflow: hidden;
+        height: 100vh;
+    }
+
+    textarea#edit {
+        float: left;
+        overflow: auto;
+        width: 50%;
+        height: 100%;
+        margin: 0;
+        font-size: 1.8vh;
+        padding: 10px;
+        border-top: 1px solid black;
+        resize: none;
+    }
+
+    div#preview {
+        float: right;
+        overflow: auto;
+        width: 50%;
+        height: 100%;
+        margin: 0;
+        padding: 10px;
+        border-top: 1px solid black;
+        padding-bottom: 15vh;
+    }
+
+    div#preview blockquote{
+        margin-left: 0px;
+        padding-left: 20px;
+        border-left: 2px solid #CCC;
+    }
+
+    .footer{
+        width: 100%;
+        overflow: hidden;
+        background-color: #ccc;
+        height: 60px;
+        padding: 4px 10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #submit_button {
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
+        color: #fff;
+        border-style: none;
+        float: right;
+        margin-top: 5px;
+        box-shadow:0px 0px 6px 3px #777;
+        -moz-box-shadow:0px 0px 6px 3px #777;
+        -webkit-box-shadow:0px 0px 6px 3px #777;
+    }
+
+    .loading{
+        position: absolute;
+        top: 50%;
+        left: 46%;
+    }
+
+    .errMsg {
+        border-radius: 20px;
+        background-color: aqua;
+        width: 30%;
+        height:70px;
+        padding: 1%;
+        position: fixed;
+        bottom: 550px;
+        left:70%;
+    }
 }
 
-#markdown{
-    padding-top: calc(5vh + 2.5vw);
-    overflow: hidden;
-    height: 100vh;
+@media screen and (min-width:482px) and (max-width:1025px){
+    .md-heading-editor {
+        width: 100%;
+        font-size: 3.5vh;
+    }
+    #markdown{
+        overflow: hidden;
+        height: 100vh;
+    }
+
+    textarea#edit {
+        float: left;
+        overflow: auto;
+        width: 50%;
+        height: 100%;
+        margin: 0;
+        font-size: 1.8vh;
+        padding: 10px;
+        border-top: 1px solid black;
+        resize: none;
+        padding-bottom: 25vh;
+    }
+
+    div#preview {
+        float: right;
+        overflow: auto;
+        width: 50%;
+        height: 100%;
+        margin: 0;
+        padding: 10px;
+        border-top: 1px solid black;
+        padding-bottom: 25vh;
+    }
+
+    div#preview blockquote{
+        margin-left: 0px;
+        padding-left: 20px;
+        border-left: 2px solid #CCC;
+    }
+
+    .footer{
+        width: 100%;
+        overflow: hidden;
+        background-color: #ccc;
+        height: 60px;
+        padding: 4px 10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    #submit_button {
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
+        color: #fff;
+        border-style: none;
+        float: right;
+        margin-top: 5px;
+        box-shadow:0px 0px 6px 3px #777;
+        -moz-box-shadow:0px 0px 6px 3px #777;
+        -webkit-box-shadow:0px 0px 6px 3px #777;
+    }
+
+    .loading{
+        position: absolute;
+        top: 50%;
+        left: 46%;
+    }
+
+    .errMsg {
+        border-radius: 20px;
+        background-color: aqua;
+        width: 30%;
+        height:70px;
+        padding: 1%;
+        position: fixed;
+        bottom: 550px;
+        left:70%;
+    }
 }
 
-textarea#edit {
-	float: left;
-	overflow: auto;
-	width: 50%;
-	height: 100%;
-	margin: 0;
-	font-size: 1.5vh;
-	padding: 10px;
-	border-top: 1px solid black;
-	resize: none;
-}
+@media screen and (max-width:481px){
+    .md-heading-editor {
+        width: 100%;
+        font-size: 2vh;
+    }
+    #markdown{
+        overflow: hidden;
+        height: 100vh;
+    }
 
-div#preview {
-	float: right;
-	overflow: auto;
-	width: 50%;
-	height: 100%;
-	margin: 0;
-	padding: 10px;
-    border-top: 1px solid black;
-}
+    textarea#edit {
+        float: left;
+        overflow: auto;
+        width: 50%;
+        height: 100%;
+        margin: 0;
+        font-size: 1.8vh;
+        padding: 10px;
+        border-top: 1px solid black;
+        resize: none;
+        padding-bottom: 15vh;
+    }
 
-div#preview blockquote{
-   margin-left: 0px;
-   padding-left: 20px;
-   border-left: 2px solid #CCC;
-}
+    div#preview {
+        float: right;
+        overflow: auto;
+        width: 50%;
+        height: 100%;
+        margin: 0;
+        padding: 10px;
+        border-top: 1px solid black;
+        padding-bottom: 15vh;
+    }
 
-.footer{
-	width: 100%;
-	overflow: hidden;
-	background-color: #ccc;
-	height: 60px;
-    padding: 4px 10px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
+    div#preview blockquote{
+        margin-left: 0px;
+        padding-left: 20px;
+        border-left: 2px solid #CCC;
+    }
 
-#submit_button {
-    padding: 10px 30px;
-    font-size: 1em;
-    background-color: #71ff71;
-    color: #fff;
-    border-style: none;
-    float: right;
-    margin-top: 5px;
-    box-shadow:0px 0px 6px 3px #777;
-    -moz-box-shadow:0px 0px 6px 3px #777;
-    -webkit-box-shadow:0px 0px 6px 3px #777;
-}
+    .footer{
+        width: 100%;
+        overflow: hidden;
+        background-color: #ccc;
+        height: 60px;
+        padding: 4px 10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
 
-.loading{
-    position: absolute;
-    top: 50%;
-    left: 46%;
-}
+    #submit_button {
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
+        color: #fff;
+        border-style: none;
+        float: right;
+        margin-top: 5px;
+        box-shadow:0px 0px 6px 3px #777;
+        -moz-box-shadow:0px 0px 6px 3px #777;
+        -webkit-box-shadow:0px 0px 6px 3px #777;
+    }
 
-.errMsg {
-    border-radius: 20px;
-    background-color: aqua;
-    width: 30%;
-    height:70px;
-    padding: 1%;
-    position: fixed;
-    bottom: 550px;
-    left:70%;
-}
+    .loading{
+        position: absolute;
+        top: 50%;
+        left: 46%;
+    }
 
-.subject_no {
-	float: right;
-    margin-right: 150px;
+    .errMsg {
+        border-radius: 20px;
+        background-color: aqua;
+        width: 30%;
+        height:70px;
+        padding: 1%;
+        position: fixed;
+        bottom: 550px;
+        left:70%;
+    }
 }
-
 
 </style>
