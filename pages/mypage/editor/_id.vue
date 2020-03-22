@@ -1,11 +1,8 @@
 <template>
 <div id="create">
     <Header></Header>
-    <div id="title">
-        
-        <input type="text" class="md-heading-editor" name="md-heading-editor" placeholder="ノート一覧に表示される名前を入力(必須)" v-model="title">
-    </div>
     <div id="markdown">
+        <input type="text" class="md-heading-editor" name="md-heading-editor" placeholder="ノート一覧に表示される名前を入力(必須)" v-model="title">
         <!--Markdown出力-->
         <div class="loading"><pulse-loader :loading="loadingFlg"></pulse-loader></div>
         <textarea id="edit" name="edit" placeholder="マークダウンで記入してください(必須)" v-model="body"></textarea>
@@ -30,7 +27,7 @@ import firebase from '@/plugins/firebase'
 
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
-import Header from '@/layouts/header.vue'
+import Header from '@/components/header.vue'
 
 import marked from "marked";
 
@@ -171,21 +168,16 @@ html, body {
   transform: translateX(100vw) translateX(0px);
 }
 
-#title {
-    position: fixed;
-    top: 70px;
-    width: 100%;
-    height: auto;
-}
-
 .md-heading-editor {
     width: 100%;
-    font-size: 30px;
+    font-size: 3vh;
 }
 
 #markdown{
-    margin-top: 110px;
+    padding-top: calc(5vh + 2.5vw);
+    padding-bottom: calc(6vh + 2.5vw);
     overflow: hidden;
+    height: 100vh;
 }
 
 textarea#edit {
@@ -194,9 +186,9 @@ textarea#edit {
 	width: 50%;
 	height: 100%;
 	margin: 0;
-	font-size: 15px;
+	font-size: 1.5vh;
 	padding: 10px;
-	border: none;
+	border-top: 1px solid black;
 	resize: none;
 }
 
@@ -207,7 +199,7 @@ div#preview {
 	height: 100%;
 	margin: 0;
 	padding: 10px;
-    border-left: solid 1px #ccc;
+    border-top: 1px solid black;
 }
 
 div#preview blockquote{
@@ -262,6 +254,4 @@ div#preview blockquote{
 	float: right;
     margin-right: 150px;
 }
-
-
 </style>

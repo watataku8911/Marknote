@@ -62,6 +62,10 @@ export default {
     text-decoration: none;
     font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic";
   }
+
+  p {
+    font-size: 2vh;
+  }
   
 @media screen and (min-width:1026px){
   #wrapper{
@@ -106,7 +110,6 @@ export default {
       font-size: calc(8vh - 80px);
       text-align: center;
       width: 100%;
-      height:1800px;
       background-color: white;
   }
 
@@ -203,7 +206,7 @@ export default {
 @media screen and (min-width:482px) and (max-width:1025px){
   #wrapper{
     width: 100%;
-    height: 200vw;
+    height: 100vw;
     background: url(../assets/background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -213,12 +216,12 @@ export default {
 
   #contents {
     background: rgba(255,255,255,0.4);
-    height: 40vh;
+    height: 50vh;
   }
 
   #contents h1{
     color: #55c500;
-    font-size: 60px;
+    font-size: 10vh;
     text-align: center;
     font-family: 'Anton', sans-serif;
     font-family: 'Lobster', cursive;
@@ -239,9 +242,7 @@ export default {
   #sub_contents{
       font-size: calc(8vh - 80px);
       text-align: center;
-      border-top: solid 1px black;
       width: 100%;
-      height:1800px;
       background-color: white;
   }
   #sub_contents #studyNote{
@@ -249,14 +250,7 @@ export default {
       font-family: 'Anton', sans-serif;
       font-family: 'Lobster', cursive;
   }
-  /* #sub_contents h2{
-      padding-top: 30px;
-  } */
-  /* #sub_contents p{
-      margin-left: 8px;
-      font-size: 20px;
 
-  } */
   #sub_contents #whatMarkdown{
       text-align: left;
       border: solid 1px #ccc;
@@ -342,7 +336,7 @@ export default {
 @media screen and (max-width:481px){
   #wrapper{
     width: 100%;
-    height: 200vh;
+    height: 100vh;
     background: url(../assets/background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -360,13 +354,14 @@ export default {
     text-align: center;
     font-family: 'Anton', sans-serif;
     font-family: 'Lobster', cursive;
+    font-size: 5vh;
   }
 
   #contents img {
-    padding-top: 25vh;
     padding-right: 1vh;
     position: absolute;
     right: 0%;
+    bottom: 20vh;
     width: 20vh;
     height:23vh;
   }
@@ -377,9 +372,7 @@ export default {
   #sub_contents{
       font-size: calc(8vh - 80px);
       text-align: center;
-      border-top: solid 1px black;
       width: 100%;
-      height:1800px;
       background-color: white;
   }
   #sub_contents #studyNote{
@@ -387,18 +380,10 @@ export default {
       font-family: 'Anton', sans-serif;
       font-family: 'Lobster', cursive;
   }
-  /* #sub_contents h2{
-      padding-top: 30px;
-  } */
-  /* #sub_contents p{
-      margin-left: 8px;
-      font-size: 20px;
-
-  } */
   
   #sub_contents #whatMarkdown{
       text-align: left;
-      border: solid 1px #ccc;
+      /* border: solid 1px #ccc; */
       width: 100%;
       padding: 5px;
       line-height: 30px;

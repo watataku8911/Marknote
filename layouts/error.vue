@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import Header from '@/layouts/header.vue'
+import Header from '@/components/header.vue'
 
 export default {
   props: {

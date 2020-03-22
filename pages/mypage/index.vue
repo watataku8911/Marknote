@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Header from '@/layouts/header.vue'
+import Header from '@/components/header.vue'
 
 import Account from '@/components/mypage/account.vue'
 

@@ -15,7 +15,7 @@
 <script>
 import firebase from '@/plugins/firebase'
 
-import Header from '@/layouts/header.vue'
+import Header from '@/components/header.vue'
 
 import marked from "marked";
 
@@ -67,10 +67,17 @@ export default {
     width: 100%;
 }
 @media screen and (min-width:1026px){
-    .body {
-        padding:calc(6vh + 30px);
-        background-color: #fff;;
-    } 
+    .note {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: calc(5vh + 2vw);
+        padding-left: calc(1vh + 2vw);
+        padding-right: calc(1vh + 2vw);
+        padding-bottom: calc(5vh + 2vw);
+        height: 100vh;
+        overflow: scroll;
+    }
 
     .footer{
         width: 100%;
@@ -99,10 +106,13 @@ export default {
     }
 }
 @media screen and (min-width:482px) and (max-width:1025px){
-    .body {
-        padding:calc(6vh + 30px);
-        background-color: #fff;
-    } 
+    .note {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: calc(5vh + 2vw);
+        padding-bottom: calc(5vh + 2vw);
+    }
 
     .footer{
         width: 100%;
@@ -132,11 +142,13 @@ export default {
     
 }
 @media screen and (max-width:481px) {
-    .body {
-        padding: calc(2vh + 35px);
-        margin-top: calc(1vh + 20px);
-        background-color: #fff;
-    } 
+    .note {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: calc(6vh + 8vw);
+        padding-bottom: calc(6vh + 8vw);
+    }
 
     .footer{
         width: 100%;
