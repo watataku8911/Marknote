@@ -59,6 +59,13 @@ export default {
                 this.$router.push('/');
             }
         })
+        //1時間後ログアウト
+        setTimeout(()=>{
+            firebase.auth().signOut()
+            .then(() => {
+                this.$router.push('/');
+            })
+        },3600000); 
     },
     methods: {
         markdown() {

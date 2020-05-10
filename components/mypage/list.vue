@@ -81,6 +81,7 @@ export default {
 /*PC*/
 @media screen and (min-width:1026px){
     #left{
+        z-index: 99;
         overflow: auto;
         width: 55%;
         float: left;
@@ -130,7 +131,7 @@ export default {
         overflow: auto;
         width: 100%;
         float: none;
-        margin-top: 75px;
+        margin-top: 25px;
     }
 
     #left h2{
@@ -172,7 +173,7 @@ export default {
         overflow: auto;
         width: 100%;
         float: none;
-        margin-top: 75px;
+        margin-top: 5px;
     }
 
     #left h2{

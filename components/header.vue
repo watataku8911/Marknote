@@ -13,7 +13,7 @@
                 </nuxt-link>
             </div>
             <div class="btn">
-                <a href="javascriot:void[0]" @click="logout">
+                <a tabindex="-1" @click="logout">
                     <img src="@/assets/logout-rounded.png" width="30" height="30" alt="">
                 </a>
             </div>
@@ -27,7 +27,7 @@
         <transition name="top">
             <nav class="navi" v-show="navi">
                 <div class="top">
-                    <a href="javascript:void[0]" @click="showUpdateModal = true">
+                    <a tabindex="-1" @click="showUpdateModal = true">
                         <img v-bind:src="this.user.photoURL" width="50" height="50">
                     </a>
                     <updateModal v-if="showUpdateModal" @close="showUpdateModal = false"></updateModal>
@@ -38,14 +38,8 @@
                     <p class="uid">@{{ this.user.uid }}</p>
                 </div>
                 <div class="buttons">
-                    <!-- <div class="item">
-                        <a href="javascript:void[0]" @click="showUpdateModal = true">
-                            <img src="@/assets/icon_101830.svg" width="20" height="20" alt="">
-                        </a>
-                    </div> -->
-                    
                     <div class="item">
-                        <a href="javascript:void[0]" @click="deleteUser">
+                        <a tabindex="-1" @click="deleteUser">
                             <img src="@/assets/icon_119110.svg" width="20" height="20" alt="">
                         </a>
                     </div>
@@ -62,7 +56,7 @@
                         </nuxt-link>
                     </div>
                     <div class="btn">
-                        <a href="javascriot:void[0]" @click="logout">
+                        <a tabindex="-1" @click="logout">
                             <img src="@/assets/logout-rounded.png" width="30" height="30" alt="">
                         </a>
                     </div>
@@ -111,9 +105,7 @@ export default {
             firebase.auth().signOut()
             .then(() => {
                 this.$router.push('/');
-            }).catch((error) => {
-                
-            });
+            })
         },
         deleteUser() {
             if(window.confirm('アカウントを削除しますか？')) {
@@ -147,9 +139,10 @@ export default {
         overflow: hidden;
         width: 100%;
         background-color: #55c500;
-        height: 70px;
+        height: 75px;
         border-bottom: solid 1px black;
     }
+
     .header h1{
         padding-top: 10px;
         margin-left: 5%;
@@ -188,9 +181,6 @@ export default {
 
 @media screen and (min-width:482px) and (max-width:1025px){
     .header{
-        z-index: 999;
-        position: fixed;
-        top:0;
         overflow: hidden;
         width: 100%;
         background-color: #55c500;
@@ -214,10 +204,9 @@ export default {
 
     .header .navi {
         width: 75%;
-        z-index: 99;
         background-color: #eee;
-        position: fixed;
-        top: 0%;
+        position: absolute;
+        bottom: 0%;
         right: 0%;
         height: 100vh;
     }
@@ -362,9 +351,6 @@ export default {
 
 @media screen and (max-width:481px){
     .header{
-        z-index: 999;
-        position: fixed;
-        top:0;
         overflow: hidden;
         width: 100%;
         background-color: #55c500;
@@ -388,12 +374,12 @@ export default {
 
     .header .navi {
         width: 75%;
-        z-index: 99;
         background-color: #eee;
         position: fixed;
         top: 0%;
         right: 0%;
         height: 100vh;
+       
     }
 
     .header .navi .top {

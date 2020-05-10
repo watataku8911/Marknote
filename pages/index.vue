@@ -10,12 +10,6 @@
       <h2 id="studyNote"><span>What&nbsp;</span>Mark&nbsp;Note?</h2>
       <p>ノートを取るように情報を蓄積するソフトウェアないしウェブサービスである。</p>
       <p>また、ノートの取り方はメモを取るときやドキュメントを書くときにとても便利な<em>「※マークダウン記法」</em>を採用。</p>
-      <!-- <div id="a">
-        <img src="@/assets/logo.png" alt="マークダウン" id="logo">
-          <div id="whatMarkdown">
-            <p>※メールを記述する時のように書きやすくて読みやすいプレーンテキストをある程度見栄えのするHTML文書へ変換できるフォーマットとしてジョン・グルーバーによって開発されました。</p>
-          </div>
-      </div> -->
       <div id="toUse">
         <h2>Function</h2>
           <div id="toUseMarkdown">
@@ -44,13 +38,14 @@
 
 <script>
 import Header from '@/components/index/Header.vue'
+
 import join from '@/components/index/join.vue'
 
 export default {
   components: {
     Header,
     join
-  },
+  }
 }
 </script>
 

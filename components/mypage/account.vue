@@ -14,13 +14,13 @@
         </div>
         <div class="buttons">
             <div class="item">
-                <a href="javascript:void[0]" @click="showUpdateModal = true">
+                <a tabindex="-1" @click="showUpdateModal = true">
                     <img src="@/assets/icon_101830.svg" width="30" height="30" alt="">
                 </a>
             </div>
             <updateModal v-if="showUpdateModal" @close="showUpdateModal = false"></updateModal>
             <div class="item">
-                <a href="javascript:void[0]" @click="deleteUser">
+                <a tabindex="-1" @click="deleteUser">
                     <img src="@/assets/icon_119110.svg" width="30" height="30" alt="">
                 </a>
             </div>
@@ -86,7 +86,7 @@ export default {
         padding-right: 2%;
         padding-left: 2%;
         float: right;
-        height: 100%;
+        height: 100vh;
         border-left: solid 1px black;
         background-color: #eee;
     }
@@ -96,14 +96,7 @@ export default {
         margin-top: 90px;
         text-align: center;
     }
-    /* #folder{
-        background-color: white;
-        position: absolute;
-        left: 80%;
-    }
-    #folder:hover{
-        opacity: 0.8;
-    } */
+
     #table{
         margin-top: 20px;
         margin-bottom: 50px;
@@ -114,7 +107,6 @@ export default {
         box-shadow:0px 0px 6px 3px #777;
         -moz-box-shadow:0px 0px 6px 3px #777;
         -webkit-box-shadow:0px 0px 6px 3px #777;
-        height: 355px;
     }
     #table .top {
         display: flex;
@@ -149,6 +141,7 @@ export default {
         right:0%;
         margin-right: 1vh;
         margin-bottom: 1vh;
+        line-height: 3vh;
         letter-spacing: 1px;
         font-size: 2vh;
         color: #888;

@@ -2,7 +2,7 @@
     <div id="header">
         <div id="navi">
 			<ul>
-                <li><a @click="showLoginModal = true">ログイン</a></li>
+                <li><a tabindex="-1" @click="showLoginModal = true">ログイン</a></li>
                 <loginModal v-if="showLoginModal" @close="showLoginModal = false"></loginModal>
 				<li><a @click="showCreateModal = true">アカウント登録</a></li>
                 <createModal v-if="showCreateModal" @close="showCreateModal = false"></createModal>

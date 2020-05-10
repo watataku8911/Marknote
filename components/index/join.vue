@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
 @media screen and (min-width:1026px){
-   #sub_contents #join{
+  #sub_contents #join{
       text-align: center;
       overflow: hidden;
       clear: left;
@@ -115,7 +115,7 @@ export default {
         display:block;
         margin: 0 auto;
         text-align: center;
-        width: 300px;
+        width: 200px;
         padding: 15px 40px;
         font-size: 1.2em;
         background-color:  #00FF7F;

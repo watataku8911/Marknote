@@ -32,7 +32,7 @@ export default {
             body: "",
         }
     },
-    created() {
+    mounted() {
         firebase.auth().onAuthStateChanged((user)=> {
             if (user) {
                 this.uid = user.uid;
@@ -41,6 +41,13 @@ export default {
                 this.$router.push("/");
             }
         });
+         //1時間後ログアウト
+        setTimeout(()=>{
+            firebase.auth().signOut()
+            .then(() => {
+                this.$router.push('/');
+            })
+        },3600000); 
     },
     methods: {
         getFirebase() {

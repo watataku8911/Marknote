@@ -122,6 +122,7 @@ export default {
     }
 
     .createPanel h2{
+        font-size: 4vh;
         margin-bottom:10px;
     }
 
@@ -140,7 +141,7 @@ export default {
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
-        font-size:20px;
+        font-size:3vh;
         margin-bottom: 15px;
     }
 }

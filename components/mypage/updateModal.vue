@@ -2,7 +2,7 @@
     <transition name="updateModal">
         <div class="updateOverlay" @click="$emit('close')">
             <div class="updatePanel" @click.stop>
-                <a href="javascript:void[0]" @click="$emit('close')" class="close">×</a>
+                <a tabindex="-1" @click="$emit('close')" class="close">×</a>
                 <h2>アカウント編集</h2>
                 <input type="text" placeholder="アカウント名" v-model="name"  class="updateHoge">
                 <p v-if="this.errUploadFlg"><font color="red">画像ファイルを正しく選択して下さい。</font></p>
@@ -177,6 +177,7 @@ export default {
     }
 
     .updatePanel h2 {
+        font-size: 4vh;
         margin-bottom: 10px;
     }
 
@@ -189,19 +190,7 @@ export default {
     .updateModal-leave-active .panel{
         top: -200px;
     }
-
-    input[type="button"]{
-        width: 40%;
-        padding: 10px;
-        font-size: 1.3em;
-        background-color: #6bef6b;
-        color: #fff;
-        border-style: none;
-        margin-top: 20px;
-        box-shadow:0px 0px 6px 3px #777;
-        -moz-box-shadow:0px 0px 6px 3px #777;
-        -webkit-box-shadow:0px 0px 6px 3px #777;
-    }
+    
     .imgContent {
         width: 90%;
         max-width: 700px;

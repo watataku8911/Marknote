@@ -127,6 +127,7 @@ export default {
     }
 
     .loginPanel h2 {
+        font-size:4vh;
         margin-bottom: 10px;
     }
 
@@ -145,14 +146,14 @@ export default {
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
-        font-size:20px;
+        font-size:3vh;
         margin-bottom: 15px;
     }
 
     input[type="button"]{
-        width: 40%;
+        width: 50%;
         padding: 10px;
-        font-size: 1.3em;
+        font-size: 3vh;
         background-color: #6bef6b;
         color: #fff;
         border-style: none;
