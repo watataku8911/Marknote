@@ -52,11 +52,11 @@ export default {
     methods: {
         getFirebase() {
             //Firebase取得
-            var database = firebase.database();
-            let markdown_notes = "markdown_notes_" + this.uid;
+            const database = firebase.database();
+            const markdown_notes = "markdown_notes_" + this.uid;
             database.ref(markdown_notes).child(this.id).on("value", (data)=> {
                 if (data) {
-                    var noteData = data.val();
+                    const noteData = data.val();
                     this.title = noteData.title;
                     this.body = noteData.body;
                 }

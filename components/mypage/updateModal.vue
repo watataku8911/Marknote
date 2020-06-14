@@ -66,7 +66,7 @@ export default {
         onDrop(event){
             this.isDropingFlg = true;
             //画像データ取得
-            let fileList = event.target.files || e.dataTransfer.files;
+            const fileList = event.target.files || e.dataTransfer.files;
             this.fileList = fileList;
 
             this.createImage(fileList[0]);
@@ -82,18 +82,18 @@ export default {
         update() {
             this.isLoadingFlg = true;
             if(this.isDropingFlg) {
-                var errFlg;
+                let errFlg;
                 if(this.fileList[0].type == "image/png") {
-                    var blob = new Blob(this.fileList, { type: "image/png" });
+                    const blob = new Blob(this.fileList, { type: "image/png" });
                     errFlg = false;
                 } else if(this.fileList[0].type == "image/jpg") {
-                    var blob = new Blob(this.fileList, { type: "image/jpg" });
+                    const blob = new Blob(this.fileList, { type: "image/jpg" });
                     errFlg = false;
                 } else if(this.fileList[0].type == "image/jpeg") {
-                    var blob = new Blob(this.fileList, { type: "image/jpeg" });
+                    const blob = new Blob(this.fileList, { type: "image/jpeg" });
                     errFlg = false;
                 } else if(this.fileList[0].type == "image/gif") {
-                    var blob = new Blob(this.fileList, { type: "image/gif" });
+                    const blob = new Blob(this.fileList, { type: "image/gif" });
                     errFlg = false;
                 } else {
                     errFlg = true;
@@ -109,8 +109,8 @@ export default {
             }
         },
         updateImage(blob) {
-            var storageRef = firebase.storage().ref();
-            var mountainsRef = storageRef.child('profileImage/' + this.fileList[0].name);
+            const storageRef = firebase.storage().ref();
+            const mountainsRef = storageRef.child('profileImage/' + this.fileList[0].name);
             //Firebase 画像アップロード
             mountainsRef.put(blob).then(snapshot => {
                 //Firebase 画像取得(URL)
@@ -123,7 +123,7 @@ export default {
         },
         //アカウント編集
         updateAccount(url) {
-            var user = firebase.auth().currentUser;
+            const user = firebase.auth().currentUser;
             user.updateProfile({
                 displayName: this.name,
                 photoURL: url

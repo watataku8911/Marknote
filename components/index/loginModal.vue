@@ -40,9 +40,9 @@ export default {
     },
     methods: {
         login() {
-            var regexp = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
-            var halfWidth = /^([a-zA-Z0-9]{8,})$/;
-            var errFrg = false;
+            const regexp = /^[A-Za-z0-9]{1}[A-Za-z0-9_.-]*@{1}[A-Za-z0-9_.-]{1,}\.[A-Za-z0-9]{1,}$/;
+            const halfWidth = /^([a-zA-Z0-9]{8,})$/;
+            let errFrg = false;
             if(this.email.length == 0) {
                 this.isEmailFlg = true;
                 this.isMachEmailFlg = false;

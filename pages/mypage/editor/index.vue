@@ -73,7 +73,7 @@ export default {
         },
         save() {
             //Firebase保存
-            var errFlg = false;
+            let errFlg = false;
             if(this.title.length == 0) {
                 this.isTitleFlg = true;
                 this.isErrMsgFlg = true;
@@ -102,21 +102,21 @@ export default {
 
             if(!errFlg) {
                 //Dateオブジェクト生成
-                var datetime = new Date();
+                const datetime = new Date();
                 //日付取得
-                var year = datetime.getFullYear();
-                var month = datetime.getMonth() + 1;
-                var day = datetime.getDate();
+                const year = datetime.getFullYear();
+                const month = datetime.getMonth() + 1;
+                const day = datetime.getDate();
                 //時間取得
-                var hour = datetime.getHours();
-                var minutes = datetime.getMinutes();
-                var second = datetime.getSeconds();
+                const hour = datetime.getHours();
+                const minutes = datetime.getMinutes();
+                const second = datetime.getSeconds();
 
-                var today = year + "-" + month + "-" + day + " " + hour + ":" + minutes + ":" + second;
+                const today = year + "-" + month + "-" + day + " " + hour + ":" + minutes + ":" + second;
 
                 this.loadingFlg = true;
-                var database = firebase.database();
-                let markdown_notes = "markdown_notes_" + this.uid;
+                const database = firebase.database();
+                const markdown_notes = "markdown_notes_" + this.uid;
                 database.ref(markdown_notes).push({
                     title: this.title,
                     body: this.body,

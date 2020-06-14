@@ -37,8 +37,8 @@ export default {
     methods: {   
         getFirebase() {
             //Firebase取得
-            var database = firebase.database();
-            let markdown_notes = "markdown_notes_" + this.uid;
+            const database = firebase.database();
+            const markdown_notes = "markdown_notes_" + this.uid;
             database.ref(markdown_notes)
             .orderByChild('deleted_flg').startAt(false).endAt(false) //「where deleted_flg = false」と同じ
             .on("value", (data)=> {
