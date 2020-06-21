@@ -1,6 +1,6 @@
 <template>
 <div id="create">
-    <Header></Header>
+    <Header />
     <div id="markdown">
         <input type="text" class="md-heading-editor" name="md-heading-editor" placeholder="ノート一覧に表示される名前を入力(必須)" v-model="title">
         <!--Markdown出力-->
@@ -24,15 +24,10 @@
 
 <script>
 import firebase from '@/plugins/firebase'
-
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
-
 import Header from '@/components/header.vue'
-
 import marked from "marked";
-
 import hljs from "highlightjs";
-
 
 export default {
     components: { 

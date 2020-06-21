@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'sample',
+    title: 'Marknote',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -12,8 +12,6 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: '/css/marked.css' },
-      // { rel:"stylesheet", href:"https://raw.githubusercontent.com/simonlc/Markdown-CSS/master/markdown.css" },
-      // { rel: 'stylesheet', href: '/css/bootstrap_css/bootstrap.min.css' }
     ],
   },
   /*
@@ -36,6 +34,15 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
+    }
+  },
+  router: {
+    extendRoutes (routes, resolve) {
+     routes.push({
+      name: '404error',
+      path: '*',
+      component: resolve('~/pages/404.vue')
+     })
     }
   }
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="detil">
-        <Header></Header>
+        <Header />
         <div class="note">
             <div class="body" v-html="markdown()"></div>
             <div class="footer">
@@ -14,13 +14,9 @@
 
 <script>
 import firebase from '@/plugins/firebase'
-
 import Header from '@/components/header.vue'
-
 import marked from "marked";
-
 import hljs from "highlightjs";
-
 
 export default {
     components: {Header},
