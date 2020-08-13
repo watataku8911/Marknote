@@ -3,7 +3,7 @@
 > マークダウンでかけるメモ帳
 
 ## アプリURL
-- [https://marknote-e7f85.firebaseapp.com](https://marknote-e7f85.firebaseapp.com)
+- [https://marknote-e7f85.web.app](https://marknote-e7f85.web.app)
 ## 開発言語
 - フロントエンド：Vue.js(Nuxt.js)
 - バックエンド：Firebase
