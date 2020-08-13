@@ -2,7 +2,6 @@
     <transition name="createModal">
         <div class="createOverlay" @click="$emit('close')">
             <div class="createPanel" @click.stop>
-                <a href="javascript:void[0]" @click="$emit('close')" class="close">×</a>
                 <h2>アカウント登録</h2>
                 <p v-if="isEmailFlg"><font color="red">メールアドレスを入力して下さい。</font></p>
                 <p v-if="isMachEmailFlg"><font color="red">メールアドレスを正しく入力して下さい。</font></p>
@@ -11,7 +10,7 @@
                 <p v-if="isOkPasswdFlg"><font color="red">8文字以上の半角英数字で入力して下さい</font></p>
                 <p style="text-align:left;">※8文字以上で半角英数字</p>
                 <input type="password" v-model="password" placeholder="パスワード" class="hoge">
-                <input type="button" value="登録" @click="createAccount" v-show="!isLoadingFlg">
+                <button class="create-button" @click="createAccount" v-show="!isLoadingFlg">登録</button>
                 <div class="loading"><pulse-loader :loading="isLoadingFlg"></pulse-loader></div>
             </div>
         </div>
@@ -20,7 +19,6 @@
 
 <script>
 import firebase from '@/plugins/firebase'
-
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
 export default {
@@ -109,17 +107,6 @@ export default {
         transform: translate(-50%, -50%);
     }
 
-    .close {
-        width: 50px;
-        height:50px;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-        display: block;
-        font-size: 30px;
-        color: #00AFEC;
-        text-align: center;
-    }
-
     .createPanel h2{
         font-size: 4vh;
         margin-bottom:10px;
@@ -142,6 +129,18 @@ export default {
         border-radius: 3px;
         font-size:3vh;
         margin-bottom: 15px;
+    }
+
+    .create-button {
+        margin-top: 8px;
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
+        color: #fff;
+        border-style: none;
+        box-shadow:0px 0px 6px 3px #777;
+        -moz-box-shadow:0px 0px 6px 3px #777;
+        -webkit-box-shadow:0px 0px 6px 3px #777;
     }
 }
 
@@ -171,19 +170,9 @@ export default {
         transform: translate(-50%, -50%);
     }
 
-    .close {
-        width: 50px;
-        height:50px;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-        display: block;
-        font-size: 30px;
-        color: #00AFEC;
-        text-align: center;
-    }
-
     .createPanel h2{
-        margin-bottom:10px;
+        margin-bottom: 25px;
+        font-size: 3vw;;
     }
 
     .createModal-enter,
@@ -203,6 +192,18 @@ export default {
         border-radius: 3px;
         font-size:20px;
         margin-bottom: 15px;
+    }
+
+    .create-button {
+        margin-top: 8px;
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
+        color: #fff;
+        border-style: none;
+        box-shadow:0px 0px 6px 3px #777;
+        -moz-box-shadow:0px 0px 6px 3px #777;
+        -webkit-box-shadow:0px 0px 6px 3px #777;
     }
 }
 
@@ -232,19 +233,9 @@ export default {
         transform: translate(-50%, -50%);
     }
 
-    .close {
-        width: 50px;
-        height:50px;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-        display: block;
-        font-size: 30px;
-        color: #00AFEC;
-        text-align: center;
-    }
-
     .createPanel h2{
-        margin-bottom:10px;
+        font-size: 3vh;
+        margin-bottom:25px;
     }
 
     .createModal-enter,
@@ -264,6 +255,18 @@ export default {
         border-radius: 3px;
         font-size:20px;
         margin-bottom: 15px;
+    }
+
+    .create-button {
+        margin-top: 8px;
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
+        color: #fff;
+        border-style: none;
+        box-shadow:0px 0px 6px 3px #777;
+        -moz-box-shadow:0px 0px 6px 3px #777;
+        -webkit-box-shadow:0px 0px 6px 3px #777;
     }
 }
 </style>

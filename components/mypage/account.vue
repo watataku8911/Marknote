@@ -18,12 +18,19 @@
                     <img src="@/assets/icon_101830.svg" width="30" height="30" alt="">
                 </a>
             </div>
+            <div class="module-spacer--small"></div>
             <updateModal v-if="showUpdateModal" @close="showUpdateModal = false"></updateModal>
             <div class="item">
-                <a tabindex="-1" @click="deleteUser">
+                <a tabindex="-1">
                     <img src="@/assets/icon_119110.svg" width="30" height="30" alt="">
                 </a>
             </div>
+            <!-- ユーザー削除ボタンは押せないようになっています -->
+            <!-- <div class="item">
+                <a tabindex="-1" @click="deleteUser">
+                    <img src="@/assets/icon_119110.svg" width="30" height="30" alt="">
+                </a>
+            </div> -->
         </div>
     </div>
 </template>
@@ -81,7 +88,7 @@ export default {
     #right{
         position: fixed;
         right: 0;
-        padding-top: 8px;
+        padding-top: 10vh;
         width: 38%;
         padding-right: 2%;
         padding-left: 2%;
@@ -91,9 +98,10 @@ export default {
         background-color: #eee;
     }
     #right h2{
+        font-size: 2em;
         border-bottom: solid 5px black;
         margin-bottom: 25px;
-        margin-top: 90px;
+        margin-top: 3vh;
         text-align: center;
     }
 
@@ -148,35 +156,40 @@ export default {
     }
 
     .buttons {
-        padding-top: 2vh;
-        padding-bottom: 2vh;
+        padding-top: 20px;
+        padding-bottom: 20px;
         width: 20%;
         text-align: center;
         background-color: #55c500;
         border-radius: 20px;
         position: absolute;
-        right: 0%;
-        bottom: 0%;
-        margin-bottom: 5vh;
-        margin-right: 5vh;
+        right: 5vh;
+        bottom: 5vh;
     }
 
     .item {
         margin: 0% auto;
-        margin-bottom: 20px;
         width: 60px;
         height:60px;
         background-color: white;
         box-shadow:1px 1px 8px 0px #000;
         border-radius: 50%;
+        position: relative;
     }
 
     .item img {
-        margin-top: 15px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
     }
 
     .item a {
         display: block;
+    }
+
+    .module-spacer--small {
+        height: 20px
     }
 }
 /*PC*/

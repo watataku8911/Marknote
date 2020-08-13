@@ -2,7 +2,6 @@
     <transition name="loginModal">
         <div class="loginOverlay" @click="$emit('close')">
             <div class="loginPanel" @click.stop>
-                <a href="javascript:void[0]" @click="$emit('close')" class="close">×</a>
                 <p v-if="isLoginErrFlg"><font color="red">ログインに失敗しました。</font></p>
                 <h2>ログイン</h2>
                 <p v-if="isEmailFlg"><font color="red">メールアドレスを入力して下さい。</font></p>
@@ -10,8 +9,9 @@
                 <input type="text" placeholder="メールアドレス" v-model="email"  value="hoge@gmail.com" class="loginHoge">
                 <p v-if="isPasswdFlg"><font color="red">パスワードを入力して下さい。</font></p>
                 <p v-if="isOkPasswdFlg"><font color="red">8文字以上の半角英数字で入力して下さい</font></p>
+                <p style="text-align:left;">※8文字以上で半角英数字</p>
                 <input type="password" placeholder="パスワード" v-model="password" value="Passw0rd" class="loginHoge">
-                <input type="button" value="ログイン" @click="login" v-show="!isLoadingFlg">
+                <button class="login-button" @click="login" v-show="!isLoadingFlg">ログイン</button>
                 <div class="loading"><pulse-loader :loading="isLoadingFlg"></pulse-loader></div>
             </div>
         </div>
@@ -19,7 +19,6 @@
 </template>
 <script>
 import firebase from '@/plugins/firebase'
-
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
 export default {
@@ -115,17 +114,6 @@ export default {
         transform: translate(-50%, -50%);
     }
 
-    .close {
-        width: 50px;
-        height:50px;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-        display: block;
-        font-size: 30px;
-        color: #00AFEC;
-        text-align: center;
-    }
-
     .loginPanel h2 {
         font-size:4vh;
         margin-bottom: 10px;
@@ -142,7 +130,7 @@ export default {
     }
 
     .loginHoge{
-        width: 80%;
+        width: 100%;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
@@ -150,14 +138,13 @@ export default {
         margin-bottom: 15px;
     }
 
-    input[type="button"]{
-        width: 50%;
-        padding: 10px;
-        font-size: 3vh;
-        background-color: #6bef6b;
+    .login-button {
+        margin-top: 8px;
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
         color: #fff;
         border-style: none;
-        margin-top: 20px;
         box-shadow:0px 0px 6px 3px #777;
         -moz-box-shadow:0px 0px 6px 3px #777;
         -webkit-box-shadow:0px 0px 6px 3px #777;
@@ -189,19 +176,9 @@ export default {
         transform: translate(-50%, -50%);
     }
 
-    .close {
-        width: 50px;
-        height:50px;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-        display: block;
-        font-size: 30px;
-        color: #00AFEC;
-        text-align: center;
-    }
-
     .loginPanel h2 {
-        margin-bottom: 10px;
+        margin-bottom: 25px;
+        font-size: 3vw;;
     }
 
     .loginModal-enter,
@@ -215,7 +192,7 @@ export default {
     }
 
     .loginHoge{
-        width: 80%;
+        width: 100%;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
@@ -223,14 +200,13 @@ export default {
         margin-bottom: 15px;
     }
 
-    input[type="button"]{
-        width: 40%;
-        padding: 10px;
-        font-size: 1.3em;
-        background-color: #6bef6b;
+    .login-button {
+        margin-top: 8px;
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
         color: #fff;
         border-style: none;
-        margin-top: 20px;
         box-shadow:0px 0px 6px 3px #777;
         -moz-box-shadow:0px 0px 6px 3px #777;
         -webkit-box-shadow:0px 0px 6px 3px #777;
@@ -262,19 +238,9 @@ export default {
         transform: translate(-50%, -50%);
     }
 
-    .close {
-        width: 50px;
-        height:50px;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-        display: block;
-        font-size: 30px;
-        color: #00AFEC;
-        text-align: center;
-    }
-
     .loginPanel h2 {
-        margin-bottom: 10px;
+        font-size: 3vh;
+        margin-bottom: 30px;
     }
 
     .loginModal-enter,
@@ -288,7 +254,7 @@ export default {
     }
 
     .loginHoge{
-        width: 80%;
+        width: 100%;
         -webkit-border-radius: 3px;
         -moz-border-radius: 3px;
         border-radius: 3px;
@@ -296,14 +262,13 @@ export default {
         margin-bottom: 15px;
     }
 
-    input[type="button"]{
-        width: 40%;
-        padding: 10px;
-        font-size: 1.3em;
-        background-color: #6bef6b;
+    .login-button {
+        margin-top: 8px;
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
         color: #fff;
         border-style: none;
-        margin-top: 20px;
         box-shadow:0px 0px 6px 3px #777;
         -moz-box-shadow:0px 0px 6px 3px #777;
         -webkit-box-shadow:0px 0px 6px 3px #777;

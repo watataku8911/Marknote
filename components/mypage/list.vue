@@ -6,7 +6,7 @@
            <div class="con" v-for="item in this.list" v-bind:key="item.id">　
                 <p>
                     <a href="javascript:void[0]" class="deleteMemo" @click="deleteMemo(item.id)">×</a>
-                    <nuxt-link v-bind:to="{name:'mypage-detail-id',params:{id:item.id}}">{{item.title}}</nuxt-link>
+                    <nuxt-link v-bind:to="{name:'mypage-detail-id',params:{id:item.id}}">{{split(item.title, 8)}}</nuxt-link>
                 </p>
             </div>
        </div>
@@ -29,8 +29,6 @@ export default {
             if (user) {
                 this.uid = user.uid;
                 this.getFirebase();
-            } else {
-                this.$router.push("/");
             }
         });
     },
@@ -71,8 +69,17 @@ export default {
                 }
                 this.listFlg = false;
             }
-            
         },
+
+        //文字を丸めるメソッド
+        split(string, max_length) {
+            if(string.length > max_length){
+                var modStr = "";
+                modStr = string.substr(0, max_length) + '...';
+                return modStr;
+            }
+            return string;
+        }
     },
 }
 </script>
@@ -85,10 +92,12 @@ export default {
         overflow: auto;
         width: 55%;
         float: left;
-        margin-top: 75px;
+        padding-top: 10vh;
         margin-left: 5.5%;
     }
+
     #left h2{
+        font-size: 2em;
         border-bottom: solid 5px black;
         margin-top: 25px;
         margin-bottom: 25px;
@@ -106,6 +115,7 @@ export default {
         margin-top:25px;
         width: 80%;
         font-size: 30px;
+        padding-bottom: 1.5%;
     }
 
     .con a{
@@ -135,6 +145,7 @@ export default {
     }
 
     #left h2{
+        font-size :2em;
         border-bottom: solid 5px black;
         margin-top: 25px;
         margin-bottom: 25px;
@@ -152,6 +163,7 @@ export default {
         margin-top:25px;
         width: 80%;
         font-size: 30px;
+        padding-bottom: 1.5%;
     }
 
     .con a{
@@ -177,6 +189,7 @@ export default {
     }
 
     #left h2{
+        font-size: 2em;
         border-bottom: solid 5px black;
         margin-top: 25px;
         margin-bottom: 25px;
@@ -195,6 +208,7 @@ export default {
         margin-top:25px;
         width: 80%;
         font-size: 30px;
+        padding-bottom: 1.5%;
     }
 
     .con a{
@@ -205,8 +219,8 @@ export default {
     }
 
     .deleteMemo{
-        width: calc(7vh + 3px);
-        height:calc(7vh + 3px);
+        width: calc(5vh + 3px);
+        height:calc(5vh + 3px);
         font-size: 3vh;
         box-shadow:1px 1px 8px 0px #000;
         border-radius: 50%;

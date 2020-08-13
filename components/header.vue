@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-    <h1>Mark&nbsp;Note</h1>
+    <h1 class="h-logo">Mark&nbsp;Note</h1>
         <div class="pc_nav">
             <div class="btn">
                 <nuxt-link to="/mypage">
@@ -28,7 +28,7 @@
             <nav class="navi" v-show="navi">
                 <div class="top">
                     <a tabindex="-1" @click="showUpdateModal = true">
-                        <img v-bind:src="this.user.photoURL" width="50" height="50">
+                        <img v-bind:src="this.user.photoURL" />
                     </a>
                     <updateModal v-if="showUpdateModal" @close="showUpdateModal = false"></updateModal>
                     <p v-if="this.user.displayName == null" class="msg">
@@ -37,29 +37,28 @@
                     <p class="name" v-else>{{ truncate(this.user.displayName, 7) }}</p>
                     <p class="uid">@{{ this.user.uid }}</p>
                 </div>
-                <div class="buttons">
-                    <div class="item">
-                        <a tabindex="-1" @click="deleteUser">
-                            <img src="@/assets/icon_119110.svg" width="20" height="20" alt="">
-                        </a>
-                    </div>
-                </div>
                 <div class="btn_area">
                     <div class="btn">
                         <nuxt-link to="/mypage">
-                            <img src="@/assets/icon_158070.svg" width="30" height="30" alt="">
-                        </nuxt-link>
-                    </div>
-                    <div class="btn">
-                        <nuxt-link to="/mypage/editor">
-                            <img src="@/assets/icon_110920.svg" width="30" height="30" alt="">
+                            <img src="@/assets/icon_158070.svg" alt="">
                         </nuxt-link>
                     </div>
                     <div class="btn">
                         <a tabindex="-1" @click="logout">
-                            <img src="@/assets/logout-rounded.png" width="30" height="30" alt="">
+                            <img src="@/assets/logout-rounded.png" alt="">
                         </a>
                     </div>
+                    <div class="btn">
+                        <a tabindex="-1">
+                            <img src="@/assets/icon_119110.svg" width="20" height="20" alt="">
+                        </a>
+                    </div>
+                    <!-- ユーザー削除ボタンは押せないようになっています -->
+                    <!-- <div class="btn">
+                        <a tabindex="-1" @click="deleteUser" disabled="false">
+                            <img src="@/assets/icon_119110.svg" width="20" height="20" alt="">
+                        </a>
+                    </div> -->
                 </div>
             </nav>
         </transition>
@@ -69,7 +68,6 @@
 
 <script>
 import firebase from '@/plugins/firebase'
-
 import updateModal from "@/components/mypage/updateModal.vue";
 
 
@@ -89,6 +87,8 @@ export default {
         firebase.auth().onAuthStateChanged((user)=> {
             if (user != null) {
                 this.user = user;
+            } else {
+                this.$router.push('/');
             }
         })
     },
@@ -109,7 +109,7 @@ export default {
         },
         deleteUser() {
             if(window.confirm('アカウントを削除しますか？')) {
-                var user = firebase.auth().currentUser;
+                const user = firebase.auth().currentUser;
 
                 user.delete().catch(function(error) {
                     alert("予期せぬエラーが発生しました");
@@ -124,13 +124,6 @@ export default {
 </script>
 
 <style scoped>
-*{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;    
-}
-
 @media screen and (min-width:1026px){
     .header{
         z-index: 999;
@@ -139,24 +132,30 @@ export default {
         overflow: hidden;
         width: 100%;
         background-color: #55c500;
-        height: 75px;
+        height: 10vh;
         border-bottom: solid 1px black;
     }
 
-    .header h1{
-        padding-top: 10px;
-        margin-left: 5%;
+   .h-logo {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) translateX(50%);
+        -webkit-transform: translateY(-50%) translateX(50%);
         width: 15%;
         font-size: 35px;
         font-family: 'Anton', sans-serif;
         font-family: 'Lobster', cursive;
         color: white;
         float: left;
+        font-size: 2.5em;
     }
 
-    .header .pc_nav {
-        float: right;
-        margin-top: 0.7%;
+    .pc_nav {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%) translateX(10%);
+        -webkit-transform: translateY(-50%) translateX(10%);
         margin-right: 5%;
         text-align: center;
         display: flex;
@@ -164,7 +163,8 @@ export default {
         justify-content: space-around;
     }
 
-    .header .pc_nav .btn{
+    .pc_nav .btn{
+        position: relative;
         width: 10%;
         padding: 3%;
         width: 50px;
@@ -172,6 +172,14 @@ export default {
         background-color: white;
         box-shadow:1px 1px 8px 0px #000;
         border-radius: 50%;
+    }
+
+    .pc_nav .btn img {
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translateY(-50%) translateX(50%);
+        -webkit-transform: translateY(-50%) translateX(50%);
     }
 
     .header .pc_nav .btn a {
@@ -189,13 +197,14 @@ export default {
     }
 
     .header h1{
-        padding-top: 10px;
+        padding-top: 12px;
         margin-left: 5%;
         width: 15%;
         font-family: 'Anton', sans-serif;
         font-family: 'Lobster', cursive;
         color: white;
         float: left;
+        font-size: 2.5em;
     }
 
     .header .pc_nav {
@@ -205,10 +214,11 @@ export default {
     .header .navi {
         width: 75%;
         background-color: #eee;
-        position: absolute;
-        bottom: 0%;
+        position: fixed;
+        top: 0%;
         right: 0%;
         height: 100vh;
+       
     }
 
     .header .navi .top {
@@ -217,11 +227,12 @@ export default {
     }
 
     .header .navi .top img{
-        width: 100px;
-        height: 100px;
         background-color: #f4f4f4;
         border-radius: 50%;
         box-shadow:1px 1px 8px 0px #000;
+        width: 10vh;
+        height: 10vh;
+        margin-bottom: 1vh;
     }
 
     .header .navi .top .msg {
@@ -231,34 +242,17 @@ export default {
 
     .header .navi .top .name{
         letter-spacing: 3px;
-        font-size: 60px;
+        font-size: 3em;
         font-weight: bold;
+        margin-bottom: 1vh;
     }
 
     .header .navi .top .uid{
-        font-size: 25px;
+        font-size: 1em;
         font-weight: bold;
         color: #666;
+        word-break: break-all;
     }
-
-
-    .header .navi .buttons {
-        width: 100%;
-        text-align: center;
-        padding-top: 20px;
-        padding-left: 50vh;
-    }
-
-    .header .navi .buttons .item {
-        padding-top: 5px;
-        width: 30px;
-        height: 30px;
-        background-color: white;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-    }
-
-    
 
     .header .navi .btn_area {
         position: absolute;
@@ -268,20 +262,24 @@ export default {
         padding-right: 20%;
     }
 
-    .btn_area .item {
-        margin-bottom: 20px;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-    }
-
     .header .navi .btn{
         padding: 15%;
-        width: 50px;
-        height:50px;
+        width: 11vh;
+        height: 11vh;
         background-color: white;
         box-shadow:1px 1px 8px 0px #000;
         border-radius: 50%;
         margin-top: 30%;
+        position: relative;
+    }
+
+    .header .navi .btn img {
+        width: 6vh;
+        height: 6vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
     }
 
     .header .navi .btn a {
@@ -366,6 +364,7 @@ export default {
         font-family: 'Lobster', cursive;
         color: white;
         float: left;
+        font-size: 2.5em;
     }
 
     .header .pc_nav {
@@ -391,6 +390,9 @@ export default {
         background-color: #f4f4f4;
         border-radius: 50%;
         box-shadow:1px 1px 8px 0px #000;
+        width: 10vh;
+        height: 10vh;
+        margin-bottom: 1vh;
     }
 
     .header .navi .top .msg {
@@ -400,34 +402,17 @@ export default {
 
     .header .navi .top .name{
         letter-spacing: 3px;
-        font-size: 20px;
+        font-size: 3em;
         font-weight: bold;
+        margin-bottom: 2vh;
     }
 
     .header .navi .top .uid{
-        font-size: 10px;
+        font-size: 1em;
         font-weight: bold;
         color: #666;
+        word-break: break-all;
     }
-
-
-    .header .navi .buttons {
-        width: 100%;
-        text-align: center;
-        padding-top: 20px;
-        padding-left: 25vh;
-    }
-
-    .header .navi .buttons .item {
-        padding-top: 5px;
-        width: 30px;
-        height: 30px;
-        background-color: white;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-    }
-
-    
 
     .header .navi .btn_area {
         position: absolute;
@@ -437,20 +422,24 @@ export default {
         padding-right: 20%;
     }
 
-    .btn_area .item {
-        margin-bottom: 20px;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-    }
-
     .header .navi .btn{
         padding: 15%;
-        width: 50px;
-        height:50px;
+        width: 11vh;
+        height: 11vh;
         background-color: white;
         box-shadow:1px 1px 8px 0px #000;
         border-radius: 50%;
         margin-top: 30%;
+        position: relative;
+    }
+
+    .header .navi .btn img {
+        width: 6vh;
+        height: 6vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
     }
 
     .header .navi .btn a {

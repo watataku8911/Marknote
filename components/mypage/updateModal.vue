@@ -2,7 +2,6 @@
     <transition name="updateModal">
         <div class="updateOverlay" @click="$emit('close')">
             <div class="updatePanel" @click.stop>
-                <a tabindex="-1" @click="$emit('close')" class="close">×</a>
                 <h2>アカウント編集</h2>
                 <input type="text" placeholder="アカウント名" v-model="name"  class="updateHoge">
                 <p v-if="this.errUploadFlg"><font color="red">画像ファイルを正しく選択して下さい。</font></p>
@@ -18,7 +17,7 @@
                         @change="onDrop">
                     </label>
                 </div>
-                <input type="button" value="編集" @click="update" v-show="!isLoadingFlg">
+                <button class="update-button" @click="update" v-show="!isLoadingFlg">編集</button>
                 <div class="loading"><pulse-loader :loading="isLoadingFlg"></pulse-loader></div>
             </div>
         </div>
@@ -165,17 +164,6 @@ export default {
         transform: translate(-50%, -50%);
     }
 
-    .close {
-        width: 50px;
-        height:50px;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-        display: block;
-        font-size: 30px;
-        color: #00AFEC;
-        text-align: center;
-    }
-
     .updatePanel h2 {
         font-size: 4vh;
         margin-bottom: 10px;
@@ -235,6 +223,18 @@ export default {
         font-size:20px;
         margin-bottom: 15px;
     }
+
+    .update-button {
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
+        color: #fff;
+        border-style: none;
+        box-shadow:0px 0px 6px 3px #777;
+        -moz-box-shadow:0px 0px 6px 3px #777;
+        -webkit-box-shadow:0px 0px 6px 3px #777;
+    }
+
 }
 
 @media screen and (min-width:482px) and (max-width:1025px){
@@ -260,17 +260,6 @@ export default {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-    }
-
-    .close {
-        width: 50px;
-        height:50px;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-        display: block;
-        font-size: 30px;
-        color: #00AFEC;
-        text-align: center;
     }
 
     .updatePanel h2 {
@@ -342,6 +331,17 @@ export default {
         margin-bottom: 15px;
     }
 
+    .update-button {
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
+        color: #fff;
+        border-style: none;
+        box-shadow:0px 0px 6px 3px #777;
+        -moz-box-shadow:0px 0px 6px 3px #777;
+        -webkit-box-shadow:0px 0px 6px 3px #777;
+    }
+
 }
 
 @media screen and (max-width:481px){
@@ -367,17 +367,6 @@ export default {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-    }
-
-    .close {
-        width: 50px;
-        height:50px;
-        box-shadow:1px 1px 8px 0px #000;
-        border-radius: 50%;
-        display: block;
-        font-size: 30px;
-        color: #00AFEC;
-        text-align: center;
     }
 
     .updatePanel h2 {
@@ -440,6 +429,17 @@ export default {
         border-radius: 3px;
         font-size:20px;
         margin-bottom: 15px;
+    }
+
+    .update-button {
+        padding: 10px 30px;
+        font-size: 1em;
+        background-color: #71ff71;
+        color: #fff;
+        border-style: none;
+        box-shadow:0px 0px 6px 3px #777;
+        -moz-box-shadow:0px 0px 6px 3px #777;
+        -webkit-box-shadow:0px 0px 6px 3px #777;
     }
 }
 

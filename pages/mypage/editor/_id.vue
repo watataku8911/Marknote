@@ -17,7 +17,7 @@
         </div>
     </transition>
     <div class="footer">
-        <button id="submit_button" @click="edit">編集</button>
+        <button class="submit-button" @click="edit">編集</button>
     </div>
 </div>
 </template>

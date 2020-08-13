@@ -1,14 +1,14 @@
 <template>
-    <div id="header">
-        <div id="navi">
+    <header class="header">
+        <nav class="h-navi">
 			<ul>
-                <li><a tabindex="-1" @click="showLoginModal = true">ログイン</a></li>
+                <li><a @click="showLoginModal = true">ログイン</a></li>
                 <loginModal v-if="showLoginModal" @close="showLoginModal = false"></loginModal>
 				<li><a @click="showCreateModal = true">アカウント登録</a></li>
                 <createModal v-if="showCreateModal" @close="showCreateModal = false"></createModal>
 			</ul>
-		</div>
-    </div>    
+		</nav>
+    </header>    
 </template>
 
 <script>
@@ -34,126 +34,108 @@ export default {
 
 <style>
 @media screen and (min-width:1026px){
-    #header{
+    .header{
         width: 100%;
-        height: 30vh;
-        overflow: hidden;
-        background: rgba(255,255,255,0.4);
+        position: relative;
     }
-    #header #navi{
-        width: 400px;
-        margin: 0 auto;
-        overflow: hidden;
+
+    .h-navi {
+        width: 200px;
         margin-top: 2%;
-        float: right;
+        position: absolute;
+        right: 3vw;
     }
-    #header #navi li{
-        margin-top:5px;
-        margin-bottom: 5px;
-        width:150px;
-        float: left;
+
+    .h-navi li{
+        margin-top:3px;
+        width: 100%;
         text-align: center;
         background-color: #eee;
-        margin-left: 30px;
-        line-height: 50px;
+        margin-bottom: 20px;
         border-radius: 20px;
     }
 
-    #header #navi li a {
+     .h-navi a {
         box-shadow:0px 0px 6px 3px #777;
         -moz-box-shadow:0px 0px 6px 3px #777;
         -webkit-box-shadow:0px 0px 6px 3px #777;
         display: block;
         border-radius: 20px;
+        padding: 4%;
+        line-height: 30px;
     }
 
-    #header #navi li a:hover{
+    .h-navi li a:hover{
         box-shadow:0px 0px 0px 0px #777;
         -moz-box-shadow:0px 0px 0px 0px #777;
         -webkit-box-shadow:0px 0px 0px 0px #777; 
     }
 }
 @media screen and (min-width:482px) and (max-width:1025px){
-    #header{
+    .header{
         width: 100%;
-        height: 30vh;
-        overflow: hidden;
-        background: rgba(255,255,255,0.4);
+        position: relative;
     }
-    #header #navi{
-        width: 400px;
-        margin: 0 auto;
-        overflow: hidden;
+
+    .h-navi {
+        width: 200px;
         margin-top: 2%;
-        float: right;
+        position: absolute;
+        right: 3vw;
     }
-    #header #navi li{
-        margin-top:5px;
-        margin-bottom: 5px;
-        width:150px;
-        float: left;
+
+    .h-navi li{
+        margin-top:3px;
+        width: 100%;
         text-align: center;
         background-color: #eee;
-        margin-left: 30px;
-        line-height: 50px;
+        margin-bottom: 20px;
         border-radius: 20px;
     }
 
-    #header #navi li a {
+     .h-navi a {
         box-shadow:0px 0px 6px 3px #777;
         -moz-box-shadow:0px 0px 6px 3px #777;
         -webkit-box-shadow:0px 0px 6px 3px #777;
         display: block;
         border-radius: 20px;
-    }
-
-    #header #navi li a:hover{
-        box-shadow:0px 0px 0px 0px #777;
-        -moz-box-shadow:0px 0px 0px 0px #777;
-        -webkit-box-shadow:0px 0px 0px 0px #777; 
+        padding: 4%;
+        line-height: 30px;
     }
 }
 
 @media screen and (max-width:481px){
-    #header{
+    .header{
         width: 100%;
-        height: 30vh;
-        overflow: hidden;
-        background: rgba(255,255,255,0.4);
-        display: flex;
-    }
-    #header #navi{
-        margin: 0 auto;
-        overflow: hidden;
-        margin-top: 2%;
-        width: 95%;
-    }
-    #header #navi ul{
-        display: flex;
-        justify-content: space-around;
-    }
-    #header #navi li{
-        margin-top:5px;
-        margin-bottom: 5px;
-        width: 45%;
-        text-align: center;
-        background-color: #eee;
-        line-height: 30px;
-        border-radius: 20px;
+        position: relative;
     }
 
-    #header #navi li a {
+    .h-navi {
+        width: 200px;
+        margin-top: 2%;
+        position: absolute;
+        right: 0;
+    }
+
+    .h-navi li{
+        margin-top: 3px;
+        width: 70%;
+        text-align: center;
+        background-color: #eee;
+        margin-bottom: 20px;
+        border-radius: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+     .h-navi a {
         box-shadow:0px 0px 6px 3px #777;
         -moz-box-shadow:0px 0px 6px 3px #777;
         -webkit-box-shadow:0px 0px 6px 3px #777;
         display: block;
         border-radius: 20px;
-    }
-
-    #header #navi li a:hover{
-        box-shadow:0px 0px 0px 0px #777;
-        -moz-box-shadow:0px 0px 0px 0px #777;
-        -webkit-box-shadow:0px 0px 0px 0px #777; 
+        padding: 4%;
+        line-height: 30px;
     }
 }
 </style>

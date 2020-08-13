@@ -1,10 +1,10 @@
 <template>
-  <section id="wrapper">
-    <div id="contents">
-      <Header />
-			<h1>Mark&nbsp;Note</h1>
-    </div>
-  </section>
+    <section class="index-contents">
+      <div class="index-filter">
+        <Header />
+        <h1 class="index-title">Mark&nbsp;Note</h1>
+      </div>
+    </section>
 </template>
 
 <script>
@@ -28,17 +28,21 @@ export default {
 </script>
 
 <style>
-  *{
+  * {
     margin: 0;
     padding: 0;
-    list-style: none;
     text-decoration: none;
-    font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic";
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+         -o-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+            box-sizing: border-box;
   }
   
 @media screen and (min-width:1026px){
-  #wrapper{
+  .index-contents{
     width: 100%;
+    height: 100vh;
     background: url(../assets/background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -47,27 +51,29 @@ export default {
     position: relative;
   }
 
-  #contents {
+  .index-filter {
     background: rgba(255,255,255,0.4);
     height: 100vh;
   }
 
-  #contents h1{
+  .index-title{
     color: #55c500;
     position: absolute;
     top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    font-size: 120px;
+    font-size: 10em;
+    font-weight: bold;
     font-family: 'Anton', sans-serif;
     font-family: 'Lobster', cursive;
   }
 }
 
 @media screen and (min-width:482px) and (max-width:1025px){
-  #wrapper{
+  .index-contents{
     width: 100%;
+    height: 100vh;
     background: url(../assets/background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -76,27 +82,29 @@ export default {
     position: relative;
   }
 
-  #contents {
+  .index-filter {
     background: rgba(255,255,255,0.4);
     height: 100vh;
   }
 
-  #contents h1{
+  .index-title{
     color: #55c500;
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    font-size: 120px;
+    font-size: 6em;
+    font-weight: bold;
     font-family: 'Anton', sans-serif;
     font-family: 'Lobster', cursive;
   }
 }
 
 @media screen and (max-width:481px){
-  #wrapper{
+  .index-contents{
     width: 100%;
+    height: 100vh;
     background: url(../assets/background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -105,19 +113,20 @@ export default {
     position: relative;
   }
 
-  #contents {
+  .index-filter {
     background: rgba(255,255,255,0.4);
     height: 100vh;
   }
 
-  #contents h1{
+  .index-title{
     color: #55c500;
     position: absolute;
-    top: 45%;
+    top: 40%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    font-size: 50px;
+    font-size: 3em;
+    font-weight: bold;
     font-family: 'Anton', sans-serif;
     font-family: 'Lobster', cursive;
   }

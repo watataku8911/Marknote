@@ -17,7 +17,7 @@
         </div>
     </transition>
     <div class="footer">
-        <button id="submit_button" @click="save">保存</button>
+        <button class="submit-button" @click="save">保存</button>
     </div>
 </div>
 </template>
@@ -130,21 +130,6 @@ export default {
 </script>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic";
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-         -o-box-sizing: border-box;
-        -ms-box-sizing: border-box;
-            box-sizing: border-box;
-}
-
-html, body {
-    width: 100%;
-}
 
 /* アニメーション設定 */
 .right-enter-active, .right-leave-active {
@@ -156,255 +141,61 @@ html, body {
   transform: translateX(100vw) translateX(0px);
 }
 
-@media screen and (min-width:1026px){
-    .md-heading-editor {
-        width: 100%;
-        font-size: 3.5vh;
-    }
-
-    #markdown{
-        position: relative;
-        top:75px;
-        overflow: hidden;
-        height: 100vh;
-    }
-
-    textarea#edit {
-        float: left;
-        overflow: auto;
-        width: 50%;
-        height: 100%;
-        margin: 0;
-        font-size: 1.8vh;
-        padding: 10px;
-        border-top: 1px solid black;
-        resize: none;
-    }
-
-    div#preview {
-        float: right;
-        overflow: auto;
-        width: 50%;
-        height: 100%;
-        margin: 0;
-        padding: 10px;
-        border-top: 1px solid black;
-        padding-bottom: 15vh;
-    }
-
-    div#preview blockquote{
-        margin-left: 0px;
-        padding-left: 20px;
-        border-left: 2px solid #CCC;
-    }
-
-    .footer{
-        width: 100%;
-        overflow: hidden;
-        background-color: #ccc;
-        height: 60px;
-        padding: 4px 10px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-
-    #submit_button {
-        padding: 10px 30px;
-        font-size: 1em;
-        background-color: #71ff71;
-        color: #fff;
-        border-style: none;
-        float: right;
-        margin-top: 5px;
-        box-shadow:0px 0px 6px 3px #777;
-        -moz-box-shadow:0px 0px 6px 3px #777;
-        -webkit-box-shadow:0px 0px 6px 3px #777;
-    }
-
-    .loading{
-        position: absolute;
-        top: 50%;
-        left: 46%;
-    }
-
-    .errMsg {
-        border-radius: 20px;
-        background-color: aqua;
-        width: 30%;
-        height:70px;
-        padding: 1%;
-        position: fixed;
-        bottom: 550px;
-        left:70%;
-    }
+/* Main */
+.md-heading-editor {
+    width: 100%;
+    font-size: 3.5vh;
 }
 
-@media screen and (min-width:482px) and (max-width:1025px){
-    .md-heading-editor {
-        width: 100%;
-        font-size: 3.5vh;
-    }
-    #markdown{
-        overflow: hidden;
-        height: 100vh;
-    }
-
-    textarea#edit {
-        float: left;
-        overflow: auto;
-        width: 50%;
-        height: 100%;
-        margin: 0;
-        font-size: 1.8vh;
-        padding: 10px;
-        border-top: 1px solid black;
-        resize: none;
-        padding-bottom: 25vh;
-    }
-
-    div#preview {
-        float: right;
-        overflow: auto;
-        width: 50%;
-        height: 100%;
-        margin: 0;
-        padding: 10px;
-        border-top: 1px solid black;
-        padding-bottom: 25vh;
-    }
-
-    div#preview blockquote{
-        margin-left: 0px;
-        padding-left: 20px;
-        border-left: 2px solid #CCC;
-    }
-
-    .footer{
-        width: 100%;
-        overflow: hidden;
-        background-color: #ccc;
-        height: 60px;
-        padding: 4px 10px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-
-    #submit_button {
-        padding: 10px 30px;
-        font-size: 1em;
-        background-color: #71ff71;
-        color: #fff;
-        border-style: none;
-        float: right;
-        margin-top: 5px;
-        box-shadow:0px 0px 6px 3px #777;
-        -moz-box-shadow:0px 0px 6px 3px #777;
-        -webkit-box-shadow:0px 0px 6px 3px #777;
-    }
-
-    .loading{
-        position: absolute;
-        top: 50%;
-        left: 46%;
-    }
-
-    .errMsg {
-        border-radius: 20px;
-        background-color: aqua;
-        width: 30%;
-        height:70px;
-        padding: 1%;
-        position: fixed;
-        bottom: 550px;
-        left:70%;
-    }
+#markdown{
+    position: relative;
+    top: 10vh;
+    overflow: hidden;
+    height: 100vh;
 }
 
-@media screen and (max-width:481px){
-    .md-heading-editor {
-        width: 100%;
-        font-size: 2vh;
-    }
-    #markdown{
-        overflow: hidden;
-        height: 100vh;
-    }
+textarea#edit {
+    float: left;
+    overflow: auto;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    font-size: 1.8vh;
+    padding: 10px;
+    resize: none;
+}
 
-    textarea#edit {
-        float: left;
-        overflow: auto;
-        width: 50%;
-        height: 100%;
-        margin: 0;
-        font-size: 1.8vh;
-        padding: 10px;
-        border-top: 1px solid black;
-        resize: none;
-        padding-bottom: 15vh;
-    }
+div#preview {
+    float: right;
+    overflow: auto;
+    width: 50%;
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+    padding-bottom: 15vh;
+}
 
-    div#preview {
-        float: right;
-        overflow: auto;
-        width: 50%;
-        height: 100%;
-        margin: 0;
-        padding: 10px;
-        border-top: 1px solid black;
-        padding-bottom: 15vh;
-    }
+div#preview blockquote{
+    margin-left: 0px;
+    padding-left: 20px;
+    border-left: 2px solid #CCC;
+}
 
-    div#preview blockquote{
-        margin-left: 0px;
-        padding-left: 20px;
-        border-left: 2px solid #CCC;
-    }
+.loading{
+    position: absolute;
+    top: 50%;
+    left: 46%;
+}
 
-    .footer{
-        width: 100%;
-        overflow: hidden;
-        background-color: #ccc;
-        height: 60px;
-        padding: 4px 10px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
-
-    #submit_button {
-        padding: 10px 30px;
-        font-size: 1em;
-        background-color: #71ff71;
-        color: #fff;
-        border-style: none;
-        float: right;
-        margin-top: 5px;
-        box-shadow:0px 0px 6px 3px #777;
-        -moz-box-shadow:0px 0px 6px 3px #777;
-        -webkit-box-shadow:0px 0px 6px 3px #777;
-    }
-
-    .loading{
-        position: absolute;
-        top: 50%;
-        left: 46%;
-    }
-
-    .errMsg {
-        border-radius: 20px;
-        background-color: aqua;
-        width: 30%;
-        height:70px;
-        padding: 1%;
-        position: fixed;
-        bottom: 550px;
-        left:70%;
-    }
+.errMsg {
+    border-radius: 20px;
+    background-color: aqua;
+    width: 30%;
+    height:70px;
+    padding: 1%;
+    position: fixed;
+    bottom: 550px;
+    left:70%;
 }
 
 </style>

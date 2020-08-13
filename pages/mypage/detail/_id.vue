@@ -5,7 +5,7 @@
             <div class="body" v-html="markdown()"></div>
             <div class="footer">
                 <nuxt-link v-bind:to="{name:'mypage-editor-id',params:{id:this.id}}">
-                    <button id="submit_button">編集</button>
+                    <button class="submit-button">編集</button>
                 </nuxt-link>
             </div>
         </div>    
@@ -69,116 +69,6 @@ export default {
 .detil {
     width: 100%;
 }
-@media screen and (min-width:1026px){
-    .note {
-        width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: calc(5vh + 2vw);
-        padding-left: calc(1vh + 2vw);
-        padding-right: calc(1vh + 2vw);
-        padding-bottom: calc(5vh + 2vw);
-        height: 100vh;
-        overflow: scroll;
-    }
-
-    .footer{
-        width: 100%;
-        overflow: hidden;
-        background-color: #ccc;
-        height: 60px;
-        padding: 4px 10px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        justify-content:space-between ;
-    }
-
-    #submit_button {
-        padding: 10px 30px;
-        font-size: 1em;
-        background-color: #71ff71;
-        color: #fff;
-        border-style: none;
-        float: right;
-        margin-top: 5px;
-        box-shadow:0px 0px 6px 3px #777;
-        -moz-box-shadow:0px 0px 6px 3px #777;
-        -webkit-box-shadow:0px 0px 6px 3px #777;
-    }
-}
-@media screen and (min-width:482px) and (max-width:1025px){
-    .note {
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: calc(5vh + 2vw);
-        padding-bottom: calc(5vh + 2vw);
-    }
-
-    .footer{
-        width: 100%;
-        overflow: hidden;
-        background-color: #ccc;
-        height: 60px;
-        padding: 4px 10px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        justify-content:space-between ;
-    }
-
-    #submit_button {
-        padding: 10px 30px;
-        font-size: 1em;
-        background-color: #71ff71;
-        color: #fff;
-        border-style: none;
-        float: right;
-        margin-top: 5px;
-        box-shadow:0px 0px 6px 3px #777;
-        -moz-box-shadow:0px 0px 6px 3px #777;
-        -webkit-box-shadow:0px 0px 6px 3px #777;
-    }
-    
-}
-@media screen and (max-width:481px) {
-    .note {
-        width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: calc(6vh + 8vw);
-        padding-bottom: calc(6vh + 8vw);
-    }
-
-    .footer{
-        width: 100%;
-        overflow: hidden;
-        background-color: #ccc;
-        height: 60px;
-        padding: 4px 10px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        justify-content:space-between ;
-    }
-
-    #submit_button {
-        padding: 10px 30px;
-        font-size: 1em;
-        background-color: #71ff71;
-        color: #fff;
-        border-style: none;
-        float: right;
-        margin-top: 5px;
-        box-shadow:0px 0px 6px 3px #777;
-        -moz-box-shadow:0px 0px 6px 3px #777;
-        -webkit-box-shadow:0px 0px 6px 3px #777;
-    }
-}
 
 /* マークダウンプレビュースタイル */
   .body table {
@@ -210,8 +100,29 @@ export default {
     border-bottom:  solid 1px #eee;
     margin-bottom: 30px;
   }
+  .body h1 {
+    font-size: 2.25em;
+  }
+  .body h2 {
+    font-size: 2.15em;
+  }
+  .body h3 {
+    font-size: 2.0em;
+  }
+  .body h4 {
+    font-size: 1.75em;
+  }
+  .body h5 {
+    font-size: 1.25em;
+  }
+  .body li {
+    line-height: 3vh;
+    font-size: 1.25em;
+  }
 
   .body p {
+    font-size: 1.2em;
+    line-height: 3.25vh;
     letter-spacing: 1px;
     margin-bottom: 20px;
   }
@@ -225,4 +136,31 @@ export default {
     padding: 1em;
     overflow: scroll;
   }
+@media screen and (min-width:1026px){
+    .note {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10vh;
+        padding-left: calc(1vh + 2vw);
+        padding-right: calc(1vh + 2vw);
+        padding-bottom: 10vh;
+        height: 100vh;
+        overflow: scroll;
+    }
+}
+@media screen and (min-width:482px) and (max-width:1025px){
+    .note {
+        width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (max-width:481px) {
+    .note {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
 </style>
