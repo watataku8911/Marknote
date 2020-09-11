@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import firebase from '@/plugins/firebase'
-import Header from '@/components/header.vue'
-import Account from '@/components/mypage/account.vue'
-import List from '@/components/mypage/list.vue'
+import firebase from "@/plugins/firebase";
+import Header from "@/components/header.vue";
+import Account from "@/components/mypage/account.vue";
+import List from "@/components/mypage/list.vue";
 
 export default {
   components: {
@@ -20,13 +20,14 @@ export default {
   },
   mounted() {
     //1時間後ログアウト
-    setTimeout(()=>{
-        firebase.auth().signOut()
+    setTimeout(() => {
+      firebase
+        .auth()
+        .signOut()
         .then(() => {
-            this.$router.push('/');
-        })
-    },3600000); 
+          this.$router.push("/");
+        });
+    }, 3600000);
   }
-}
-
+};
 </script>
