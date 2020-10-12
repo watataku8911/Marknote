@@ -15,12 +15,12 @@ export default {
   components: {
     Header
   },
-  mounted() {
+  created() {
+    // 端末にログイン情報があればユーザー
+    // のマイページへ
     firebase.auth().onAuthStateChanged(user => {
       if (user != null) {
-        this.$router.push("/mypage");
-      } else {
-        this.$router.push("/");
+        his.$router.push("/mypage");
       }
     });
   }
@@ -90,7 +90,7 @@ export default {
   .index-title {
     color: #55c500;
     position: absolute;
-    top: 40%;
+    top: calc(46% + 20px);
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -121,7 +121,7 @@ export default {
   .index-title {
     color: #55c500;
     position: absolute;
-    top: 40%;
+    top: 43%;
     left: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -132,4 +132,3 @@ export default {
   }
 }
 </style>
-
