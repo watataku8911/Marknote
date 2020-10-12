@@ -1,41 +1,286 @@
-  div#preview table {
-    border: solid 1px black;
-    border-collapse: collapse;
+/* editor-preview */
+.edit-preview h1 {
+  font-size: 2em;
+  border-bottom: solid 1px #eee;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.edit-preview h2 {
+  font-size: 1.5em;
+  border-bottom: solid 1px #eee;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.edit-preview h3 {
+  font-size: 1.25em;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.edit-preview h4 {
+  font-size: 1em;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.edit-preview h5 {
+  font-size: 0.75em;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.edit-preview p {
+  font-size: 1.5vh;
+  letter-spacing: 1px;
+  line-height: 3vh;
+  margin-bottom: 20px;
+}
+
+.edit-preview strong {
+  font-weight: bold;
+  font-size: 2vh;
+}
+
+.edit-preview pre {
+  background-color: #364549;
+  color: #e3e3e3;
+  font-size: inherit;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+  line-height: 1.8;
+  padding: 1em;
+}
+
+.edit-preview table {
+  border: solid 1px black;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.edit-preview th {
+  padding: 8px;
+  border: solid 1px black;
+  background-color: #eee;
+}
+
+.edit-preview td {
+  border: solid 1px black;
+}
+
+.edit-preview tr:nth-child(odd) td {
+  background-color: #fff;
+  padding: 8px;
+}
+
+.edit-preview tr:nth-child(even) td {
+  background-color: #eee;
+  padding: 8px;
+}
+
+.edit-preview li {
+  font-size: 1.5vh;
+  line-height: 3vh;
+  list-style: square inside;
+}
+
+/* detail-preview */
+.detail-preview pre {
+  background-color: #364549;
+  color: #e3e3e3;
+  font-size: inherit;
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, Courier,
+    monospace;
+  line-height: 1.8;
+  padding: 1em;
+  overflow: auto;
+}
+
+.detail-preview table {
+  font-family: "Noto Serif JP", serif;
+  border: solid 1px black;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.detail-preview th {
+  padding: 8px;
+  border: solid 1px black;
+  background-color: #eee;
+}
+
+.detail-preview td {
+  border: solid 1px black;
+}
+
+.detail-preview tr:nth-child(odd) td {
+  background-color: #fff;
+  padding: 8px;
+}
+
+.detail-preview tr:nth-child(even) td {
+  background-color: #eee;
+  padding: 8px;
+}
+
+@media screen and (min-width: 1026px) {
+  .detail-preview h1 {
+    margin-top: 20px;
+    border-bottom: solid 1px #eee;
     margin-bottom: 20px;
-  }
-  div#preview th {
-    padding: 8px;
-    border: solid 1px black;
-    background-color: #eee;
-  }
-  tr:nth-child(odd) td {
-      background-color: #fff;   /* 奇数行の背景色 */
-      padding: 8px;
-  }
-  tr:nth-child(even) td {
-      background-color: #eee;   /* 偶数行の背景色 */
-      padding: 8px;
-  }
-  div#preview td {
-    border: solid 1px black; 
-  }
-  div#preview h1,h2,h3,h4,h5 {
-    margin-top: 10px;
-    border-bottom:  solid 1px #eee;
-    margin-bottom: 30px;
+    font-size: 2vw;
   }
 
-  div#preview p {
-    letter-spacing: 1px;
+  .detail-preview h2 {
+    margin-top: 20px;
+    border-bottom: solid 1px #eee;
+    margin-bottom: 20px;
+    font-size: 1.5vw;
+  }
+
+  .detail-preview h3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 1vw;
+  }
+
+  .detail-preview h4 {
+    font-size: 0.75vw;
+    margin-top: 20px;
     margin-bottom: 20px;
   }
 
-  div#preview pre, 
-  .body pre{
-    background-color: #364549;
-    color: #e3e3e3;
-    font-size: inherit;
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-    line-height: 1.8;
-    padding: 1em;;
+  .detail-preview h5 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 0.5vw;
   }
+
+  .detail-preview li {
+    font-family: "Noto Serif JP", serif;
+    line-height: 3vh;
+    font-size: 20px;
+  }
+
+  .detail-preview p {
+    padding: 2px;
+    font-family: "Noto Serif JP", serif;
+    font-size: 20px;
+    line-height: 3.25vh;
+    letter-spacing: 1.2px;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  .detail-preview strong {
+    font-weight: bold;
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 482px) and (max-width: 1025px) {
+  .detail-preview h1 {
+    margin-top: 20px;
+    border-bottom: solid 1px #eee;
+    margin-bottom: 20px;
+    font-size: 4.5vw;
+  }
+
+  .detail-preview h2 {
+    margin-top: 20px;
+    border-bottom: solid 1px #eee;
+    margin-bottom: 20px;
+    font-size: 4vw;
+  }
+
+  .detail-preview h3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 3vw;
+  }
+
+  .detail-preview h4 {
+    font-size: 2.5vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .detail-preview h5 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 2vw;
+  }
+
+  .detail-preview li {
+    font-family: "Noto Serif JP", serif;
+    line-height: 5vw;
+    font-size: 20px;
+  }
+
+  .detail-preview p {
+    padding: 2px;
+    font-family: "Noto Serif JP", serif;
+    font-size: 20px;
+    line-height: calc(6vw - 10px);
+    letter-spacing: 1.2px;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+
+  .detail-preview strong {
+    font-weight: bold;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 481px) {
+  .detail-preview h1 {
+    margin-top: 20px;
+    border-bottom: solid 1px #eee;
+    margin-bottom: 20px;
+    font-size: 6vw;
+  }
+
+  .detail-preview h2 {
+    margin-top: 20px;
+    border-bottom: solid 1px #eee;
+    margin-bottom: 20px;
+    font-size: 5vw;
+  }
+
+  .detail-preview h3 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 4vw;
+  }
+
+  .detail-preview h4 {
+    font-size: 3vw;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .detail-preview h5 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 2vw;
+  }
+
+  .detail-preview li {
+    font-family: "Noto Serif JP", serif;
+    line-height: 3vh;
+    font-size: 20px;
+  }
+
+  .detail-preview p {
+    padding: 2px;
+    font-family: "Noto Serif JP", serif;
+    font-size: 20px;
+    line-height: 3.25vh;
+    letter-spacing: 1.2px;
+    margin-bottom: 40px;
+    font-weight: 400;
+  }
+}
