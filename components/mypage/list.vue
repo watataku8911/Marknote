@@ -2,16 +2,19 @@
   <div id="left">
     <h2>メモ一覧</h2>
     <div class="memo_field">
-      <p v-if="listFlg">
-        <font color="red">ノート一覧には最低1つは残して置いてください。</font>
-      </p>
       <div class="con" v-for="item in this.list" v-bind:key="item.id">
-        <p>
-          <a href="javascript:void[0]" class="deleteMemo" @click="deleteMemo(item.id)">×</a>
-          <nuxt-link
-            v-bind:to="{name:'mypage-detail-id',params:{id:item.id}}"
-          >{{split(item.title, 8)}}</nuxt-link>
-        </p>
+        <span class="memo_field_time" v-if="item.updated_at == item.created_at"
+          >{{ item.created_at }} 作成</span
+        >
+        <span class="memo_field_time" v-else>{{ item.updated_at }} 更新</span>
+        <div class="deleteMemo">
+          <a href="javascript:void[0]" @click="deleteMemo(item.id)">×</a>
+        </div>
+        <nuxt-link
+          class="link"
+          v-bind:to="{ name: 'mypage-detail-id', params: { id: item.id } }"
+          >{{ split(item.title, 8) }}</nuxt-link
+        >
       </div>
     </div>
   </div>
@@ -24,59 +27,47 @@ export default {
   data() {
     return {
       uid: "", //ユーザーID
-      list: [], // 最新状態はここにコピーされる
-      listFlg: false
+      list: [] // 最新状態はここにコピーされる
     };
   },
   mounted() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.uid = user.uid;
-        this.getFirebase();
+
+        const database = firebase.database();
+        const markdown_notes = "markdown_notes_" + this.uid;
+        database
+          .ref(markdown_notes)
+          .orderByChild("updated_at")
+          .on("value", data => {
+            if (data) {
+              const rootList = data.val();
+              const key = data.key;
+              let list = [];
+              // データオブジェクトを配列に変更する
+              if (rootList != null) {
+                Object.keys(rootList).forEach((val, key) => {
+                  rootList[val].id = val;
+                  list.push(rootList[val]);
+                  this.list = list.reverse();
+                });
+              }
+            }
+          });
       }
     });
   },
   methods: {
-    getFirebase() {
-      //Firebase取得
-      const database = firebase.database();
-      const markdown_notes = "markdown_notes_" + this.uid;
-      database
-        .ref(markdown_notes)
-        .orderByChild("deleted_flg")
-        .startAt(false)
-        .endAt(false) //「where deleted_flg = false」と同じ
-        .on("value", data => {
-          if (data) {
-            const rootList = data.val();
-            const key = data.key;
-            let list = [];
-            // データオブジェクトを配列に変更する
-            if (rootList != null) {
-              Object.keys(rootList).forEach((val, key) => {
-                rootList[val].id = val;
-                list.push(rootList[val]);
-                this.list = list.reverse();
-              });
-            }
-          }
-        });
-    },
     deleteMemo(id) {
-      if (this.list.length <= 1) {
-        this.listFlg = true;
-      } else {
-        if (window.confirm("このメモを削除しますか？")) {
-          var database = firebase.database();
-          let markdown_notes = "markdown_notes_" + this.uid;
-          database
-            .ref(markdown_notes)
-            .child(id)
-            .update({
-              deleted_flg: true
-            });
-        }
-        this.listFlg = false;
+      console.log(id);
+      if (window.confirm("このメモを削除しますか？")) {
+        const database = firebase.database();
+        const markdown_notes = "markdown_notes_" + this.uid;
+        database
+          .ref(markdown_notes)
+          .child(id)
+          .remove();
       }
     },
 
@@ -99,10 +90,11 @@ export default {
   #left {
     z-index: 99;
     overflow: auto;
-    width: 55%;
+    width: 58%;
     float: left;
     padding-top: 10vh;
     margin-left: 5.5%;
+    padding-bottom: 15vh;
   }
 
   #left h2 {
@@ -124,22 +116,43 @@ export default {
     width: 80%;
     font-size: 30px;
     padding-bottom: 1.5%;
+    height: 110px;
   }
 
-  .con a {
+  .con .link {
     font-size: calc(2vh + 13px);
     display: block;
     color: #00afec;
     text-align: center;
+    clear: right;
+    height: 110px;
+    padding-top: 4vh;
+  }
+
+  .memo_field_time {
+    display: block;
+    padding-right: 18px;
+    padding-top: 5px;
+    color: #aaa;
+    font-size: 1.5vh;
+    float: right;
   }
 
   .deleteMemo {
-    width: 6vh;
-    height: 6vh;
+    width: 5vh;
+    height: 5vh;
     box-shadow: 1px 1px 8px 0px #000;
     border-radius: 50%;
+  }
+
+  .deleteMemo a {
+    position: relative;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-26%, -50%);
+    transform: translate(-26%, -50%);
     display: block;
-    padding-bottom: 2vh;
+    color: #00afec;
   }
 }
 
@@ -149,6 +162,7 @@ export default {
     width: 100%;
     float: none;
     margin-top: 25px;
+    padding-bottom: 16vh;
   }
 
   #left h2 {
@@ -170,20 +184,43 @@ export default {
     width: 80%;
     font-size: 30px;
     padding-bottom: 1.5%;
+    height: calc(15vw - 20px);
   }
 
-  .con a {
+  .con .link {
+    font-size: calc(2vh + 13px);
     display: block;
     color: #00afec;
     text-align: center;
+    clear: right;
+    height: 10vh;
+    padding-top: 1vh;
+  }
+
+  .memo_field_time {
+    display: block;
+    padding-right: 18px;
+    padding-top: 5px;
+    color: #aaa;
+    font-size: 1.5vh;
+    float: right;
   }
 
   .deleteMemo {
-    width: 50px;
-    height: 50px;
+    width: 6vw;
+    height: 6vw;
     box-shadow: 1px 1px 8px 0px #000;
     border-radius: 50%;
+  }
+
+  .deleteMemo a {
+    position: relative;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-22%, -50%);
+    transform: translate(-22%, -50%);
     display: block;
+    color: #00afec;
   }
 }
 @media screen and (max-width: 481px) {
@@ -192,6 +229,7 @@ export default {
     width: 100%;
     float: none;
     margin-top: 5px;
+    padding-bottom: 18vh;
   }
 
   #left h2 {
@@ -214,23 +252,43 @@ export default {
     width: 80%;
     font-size: 30px;
     padding-bottom: 1.5%;
+    height: 15vh;
   }
 
-  .con a {
-    font-size: 3.5vh;
+  .con .link {
+    font-size: calc(2vh + 13px);
     display: block;
     color: #00afec;
     text-align: center;
+    clear: right;
+    height: 15vh;
+    padding-top: 4vh;
+  }
+
+  .memo_field_time {
+    display: block;
+    padding-right: 18px;
+    padding-top: 5px;
+    color: #aaa;
+    font-size: 1.5vh;
+    float: right;
   }
 
   .deleteMemo {
-    width: calc(5vh + 3px);
-    height: calc(5vh + 3px);
-    font-size: 3vh;
+    width: 5vh;
+    height: 5vh;
     box-shadow: 1px 1px 8px 0px #000;
     border-radius: 50%;
+  }
+
+  .deleteMemo a {
+    position: relative;
+    top: 45%;
+    left: 50%;
+    -webkit-transform: translate(-26%, -50%);
+    transform: translate(-26%, -50%);
     display: block;
-    padding-bottom: 1vh;
+    color: #00afec;
   }
 }
 </style>

@@ -8,7 +8,9 @@
         </nuxt-link>
       </div>
       <div class="btn">
-        <nuxt-link to="/mypage/editor">
+        <nuxt-link
+          v-bind:to="{ name: 'mypage-editor-id', params: { id: 'new' } }"
+        >
           <img src="@/assets/icon_110920.svg" width="30" height="30" alt />
         </nuxt-link>
       </div>
@@ -19,7 +21,7 @@
       </div>
     </div>
     <div class="mobile_nav">
-      <div class="navToggle" @click="naviOpen" :class="{'is-active': active}">
+      <div class="navToggle" @click="naviOpen" :class="{ 'is-active': active }">
         <span></span>
         <span></span>
         <span></span>
@@ -32,9 +34,14 @@
           <a tabindex="-1" @click="showUpdateModal = true">
             <img v-bind:src="this.user.photoURL" />
           </a>
-          <updateModal v-if="showUpdateModal" @close="showUpdateModal = false"></updateModal>
+          <updateModal
+            v-if="showUpdateModal"
+            @close="showUpdateModal = false"
+          ></updateModal>
           <p v-if="this.user.displayName == null" class="msg">
-            <font color="red">※アカウント編集にてアカウント名等登録してください。</font>
+            <font color="red"
+              >※アカウント編集にてアカウント名等登録してください。</font
+            >
           </p>
           <p class="name" v-else>{{ truncate(this.user.displayName, 7) }}</p>
           <p class="uid">@{{ this.user.uid }}</p>
@@ -134,7 +141,7 @@ export default {
     overflow: hidden;
     width: 100%;
     background-color: #55c500;
-    height: 10vh;
+    height: 7vh;
     border-bottom: solid 1px black;
   }
 
@@ -144,12 +151,11 @@ export default {
     transform: translateY(-50%) translateX(50%);
     -webkit-transform: translateY(-50%) translateX(50%);
     width: 15%;
-    font-size: 35px;
     font-family: "Anton", sans-serif;
     font-family: "Lobster", cursive;
     color: white;
     float: left;
-    font-size: 2.5em;
+    font-size: 2em;
   }
 
   .pc_nav {
@@ -169,8 +175,8 @@ export default {
     position: relative;
     width: 10%;
     padding: 3%;
-    width: 50px;
-    height: 50px;
+    width: 4.5vh;
+    height: 4.5vh;
     background-color: white;
     box-shadow: 1px 1px 8px 0px #000;
     border-radius: 50%;

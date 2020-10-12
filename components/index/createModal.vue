@@ -9,7 +9,12 @@
         <p v-if="isMachEmailFlg">
           <font color="red">メールアドレスを正しく入力して下さい。</font>
         </p>
-        <input type="text" v-model="email" placeholder="メールアドレス" class="hoge" />
+        <input
+          type="text"
+          v-model="email"
+          placeholder="メールアドレス"
+          class="hoge"
+        />
         <p v-if="isPasswdFlg">
           <font color="red">パスワードを入力して下さい。</font>
         </p>
@@ -17,8 +22,19 @@
           <font color="red">8文字以上の半角英数字で入力して下さい</font>
         </p>
         <p style="text-align:left;">※8文字以上で半角英数字</p>
-        <input type="password" v-model="password" placeholder="パスワード" class="hoge" />
-        <button class="create-button" @click="createAccount" v-show="!isLoadingFlg">登録</button>
+        <input
+          type="password"
+          v-model="password"
+          placeholder="パスワード"
+          class="hoge"
+        />
+        <button
+          class="create-button"
+          @click="createAccount"
+          v-show="!isLoadingFlg"
+        >
+          登録
+        </button>
         <div class="loading">
           <pulse-loader :loading="isLoadingFlg"></pulse-loader>
         </div>

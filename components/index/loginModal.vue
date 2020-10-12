@@ -33,7 +33,9 @@
           value="Passw0rd"
           class="loginHoge"
         />
-        <button class="login-button" @click="login" v-show="!isLoadingFlg">ログイン</button>
+        <button class="login-button" @click="login" v-show="!isLoadingFlg">
+          ログイン
+        </button>
         <div class="loading">
           <pulse-loader :loading="isLoadingFlg"></pulse-loader>
         </div>

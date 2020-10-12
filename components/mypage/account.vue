@@ -5,13 +5,17 @@
       <div class="top">
         <img v-bind:src="this.user.photoURL" width="200" height="200" />
         <span v-if="this.user.displayName == null" class="msg">
-          <font color="red">※アカウント編集にてアカウント名等登録してください。</font>
+          <font color="red"
+            >※アカウント編集にてアカウント名等登録してください。</font
+          >
         </span>
-        <span class="name" v-else>{{ truncate(this.user.displayName, 7) }}</span>
+        <span class="name" v-else>{{
+          truncate(this.user.displayName, 7)
+        }}</span>
       </div>
       <div class="sub">
         <p class="uid">@{{ this.user.uid }}</p>
-        <p class="email">{{this.user.email}}</p>
+        <p class="email">{{ this.user.email }}</p>
       </div>
     </div>
     <div class="buttons">
@@ -21,7 +25,10 @@
         </a>
       </div>
       <div class="module-spacer--small"></div>
-      <updateModal v-if="showUpdateModal" @close="showUpdateModal = false"></updateModal>
+      <updateModal
+        v-if="showUpdateModal"
+        @close="showUpdateModal = false"
+      ></updateModal>
       <div class="item">
         <a tabindex="-1">
           <img src="@/assets/icon_119110.svg" width="30" height="30" alt />
@@ -78,7 +85,7 @@ export default {
 };
 </script>
 
-<style  scoped>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
@@ -91,7 +98,7 @@ export default {
     position: fixed;
     right: 0;
     padding-top: 10vh;
-    width: 38%;
+    width: 35%;
     padding-right: 2%;
     padding-left: 2%;
     float: right;
